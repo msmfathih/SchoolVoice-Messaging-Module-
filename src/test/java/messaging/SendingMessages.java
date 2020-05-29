@@ -110,9 +110,9 @@ public class SendingMessages {
 		
 		//System.out.println("paas2");
 		Thread.sleep(5000);
-//		WebElement uploadButton=driver.findElement(By.xpath("/html/body/div[3]/form/div[1]"));
-//		Thread.sleep(3500);
-//		uploadButton.sendKeys(filePath);
+		WebElement uploadButton=driver.findElement(By.xpath("/html/body/div[3]/form/div[1]"));
+		Thread.sleep(3500);
+		uploadButton.sendKeys(filePath);
 		
 		System.out.println("paas4");
 		Thread.sleep(1500);
