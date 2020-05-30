@@ -79,7 +79,7 @@ public class SendingMessages {
 	
 	public static void createMessage(WebDriver driver) throws InterruptedException {
 		
-		//String filePath="C:\\Users\\fathih\\eclipse-workspace\\SV_Messaging_Module\\images\\licenece copy"; 
+		String filePath="C:\\Users\\fathih\\eclipse-workspace\\SV_Messaging_Module\\images\\licenece copy"; 
 		
 		driver.findElement(By.xpath("/html/body/div[3]/a/i")).click();
 		Thread.sleep(1500);
