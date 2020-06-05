@@ -24,7 +24,7 @@ public class integration extends functions  implements boostrapDropDownMenu {
 
 	public static void main(String[] args) throws InterruptedException {
 
-	  
+
 		String projectLocation = System.getProperty("user.dir");
 		System.setProperty("webdriver.chrome.bin", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
 		System.setProperty("webdriver.chrome.driver", projectLocation+"\\lib\\chromedriver\\chromedriver.exe");
@@ -36,13 +36,14 @@ public class integration extends functions  implements boostrapDropDownMenu {
 		driver.manage().window().maximize(); //maximize browser
 
 		integration.loginModule(driver);
-		integration.skill_Country_DropdownMenu(driver);
-		
-		integration obj=new integration(); //create class for interface
-		obj.languageSelection(driver);  //call interface method
 
 		integration.radioBtnMethod(driver);
 		integration.checkBoxesMethod(driver);
+
+		integration obj=new integration(); //create class for interface
+		obj.languageSelection(driver);  //call interface method
+
+		integration.skill_Country_DropdownMenu(driver);
 		//integration.alertMethod(driver);
 
 		//integration.mouseHover_DragandDrop(driver);
@@ -50,11 +51,10 @@ public class integration extends functions  implements boostrapDropDownMenu {
 		//driver.quit();
 
 	}
-	
-	
+
+
 	//interface method
 	public void languageSelection(WebDriver driver) {
-
 
 		driver.findElement(By.id("msdd")).click();
 
@@ -77,7 +77,7 @@ public class integration extends functions  implements boostrapDropDownMenu {
 
 		}
 	}
-	
+
 
 	//click all the languages
 	//	for(int i=0; i<list.size(); i++){
@@ -90,11 +90,11 @@ public class integration extends functions  implements boostrapDropDownMenu {
 	public static void loginModule(WebDriver driver) throws InterruptedException {
 
 		String filePath="C:\\Users\\fathih\\eclipse-workspace\\RentVehicals\\images\\licenece copy.jpeg";
-		
+
 		driver.findElement(By.id("email")).sendKeys("admin@gmail.com");
-				
+
 		driver.findElement(By.xpath("//*[@id=\"enterimg\"]")).click();
-		
+
 		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[1]/div[1]/input")).sendKeys("fathih");
 		try {
 			Thread.sleep(1500);
@@ -118,7 +118,7 @@ public class integration extends functions  implements boostrapDropDownMenu {
 		Thread.sleep(1500);
 
 
-		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[4]/div/input")).sendKeys("3242343");
+		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[4]/div/input")).sendKeys("0777989387");
 
 		Thread.sleep(1500);  
 
@@ -134,45 +134,58 @@ public class integration extends functions  implements boostrapDropDownMenu {
 
 			e.printStackTrace();
 		}
-		
+
 		driver.findElement(By.xpath("//*[@id=\"Skills\"]/option[5]")).click();
 		System.out.println("Android is  selected");
 		//countries dropdown
-		
+
 		driver.findElement(By.id("countries")).click();
 		Thread.sleep(2000);
-		
+
 		driver.findElement(By.xpath("//*[@id=\"countries\"]/option[15]")).click();
 		System.out.println("Australia is  selected");
-		
-		
-		
+
 		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[10]/div/span/span[1]/span")).click();
 		Thread.sleep(5000);
-		
+
 		driver.findElement(By.xpath("/html/body/span/span/span[1]/input")).sendKeys("India");
 		System.out.println("India is  selected");
-		
-		
-//		WebElement element = driver.findElement(By.xpath("//*[@id=\"Skills\"]"));
-//		Select sel=new Select(element);
-//		
-//		sel.selectByVisibleText("Android");
-//		
-//		WebElement firstEle = sel.getFirstSelectedOption();
-//		System.out.println("first element = "+firstEle.getText());
-//		
-//		
-//		List<WebElement>listOption = sel.getOptions();
-//		for(WebElement webElement : listOption)  {
-//			
-//			System.out.println("option -"+webElement.getText());
-//			
-//		}
-//		
+
+		//DOB Y:M:D
+		driver.findElement(By.id("yearbox")).click();Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id=\"yearbox\"]/option[77]")).click();
+
+		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[11]/div[2]/select")).click();Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[11]/div[2]/select/option[12]")).click();
+
+		driver.findElement(By.id("daybox")).click();Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id=\"daybox\"]/option[15]")).click();
+
+
+		driver.findElement(By.id("firstpassword")).sendKeys("12345");
+		driver.findElement(By.id("secondpassword")).sendKeys("35235");
+
+		driver.findElement(By.id("submitbtn")).click();
+		//DOB Y:M:D method-2
+		//		WebElement element = driver.findElement(By.xpath("//*[@id=\"Skills\"]"));
+		//		Select sel=new Select(element);
+		//		
+		//		sel.selectByVisibleText("Android");
+		//		
+		//		WebElement firstEle = sel.getFirstSelectedOption();
+		//		System.out.println("first element = "+firstEle.getText());
+		//		
+		//		
+		//		List<WebElement>listOption = sel.getOptions();
+		//		for(WebElement webElement : listOption)  {
+		//			
+		//			System.out.println("option -"+webElement.getText());
+		//			
+		//		}
+		//		
 	}
 
-	
+
 	public static void radioBtnMethod(WebDriver driver) {
 
 		//gender male radio btn method1
