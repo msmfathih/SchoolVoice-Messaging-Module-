@@ -29,10 +29,9 @@ public class integration extends functions  implements boostrapDropDownMenu {
 		System.setProperty("webdriver.chrome.bin", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
 		System.setProperty("webdriver.chrome.driver", projectLocation+"\\lib\\chromedriver\\chromedriver.exe");
 
-
 		WebDriver driver=new ChromeDriver();
 
-		driver.get("http://demo.automationtesting.in/Register.html");
+		driver.get("http://demo.automationtesting.in");
 
 		driver.manage().window().maximize(); //maximize browser
 
@@ -44,14 +43,13 @@ public class integration extends functions  implements boostrapDropDownMenu {
 
 		integration.radioBtnMethod(driver);
 		integration.checkBoxesMethod(driver);
-		integration.alertMethod(driver);
+		//integration.alertMethod(driver);
 
 		//integration.mouseHover_DragandDrop(driver);
 
-		driver.quit();
+		//driver.quit();
 
 	}
-	
 	
 	
 	//interface method
@@ -92,7 +90,11 @@ public class integration extends functions  implements boostrapDropDownMenu {
 	public static void loginModule(WebDriver driver) throws InterruptedException {
 
 		String filePath="C:\\Users\\fathih\\eclipse-workspace\\RentVehicals\\images\\licenece copy.jpeg";
-
+		
+		driver.findElement(By.id("email")).sendKeys("admin@gmail.com");
+				
+		driver.findElement(By.xpath("//*[@id=\"enterimg\"]")).click();
+		
 		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[1]/div[1]/input")).sendKeys("fathih");
 		try {
 			Thread.sleep(1500);
@@ -132,15 +134,42 @@ public class integration extends functions  implements boostrapDropDownMenu {
 
 			e.printStackTrace();
 		}
-
-		/*driver.findElement(By.xpath("//*[@id=\"Skills\"]/option[4]")).click();
-		System.out.println("Skills has clicked..");
-
-		driver.findElement(By.xpath("//*[@id=\"section\"]/div/div")).click();
-
-		driver.findElement(By.id("countries")).click();*/
-
-
+		
+		driver.findElement(By.xpath("//*[@id=\"Skills\"]/option[5]")).click();
+		System.out.println("Android is  selected");
+		//countries dropdown
+		
+		driver.findElement(By.id("countries")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@id=\"countries\"]/option[15]")).click();
+		System.out.println("Australia is  selected");
+		
+		
+		
+		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[10]/div/span/span[1]/span")).click();
+		Thread.sleep(5000);
+		
+		driver.findElement(By.xpath("/html/body/span/span/span[1]/input")).sendKeys("India");
+		System.out.println("India is  selected");
+		
+		
+//		WebElement element = driver.findElement(By.xpath("//*[@id=\"Skills\"]"));
+//		Select sel=new Select(element);
+//		
+//		sel.selectByVisibleText("Android");
+//		
+//		WebElement firstEle = sel.getFirstSelectedOption();
+//		System.out.println("first element = "+firstEle.getText());
+//		
+//		
+//		List<WebElement>listOption = sel.getOptions();
+//		for(WebElement webElement : listOption)  {
+//			
+//			System.out.println("option -"+webElement.getText());
+//			
+//		}
+//		
 	}
 
 	
@@ -169,7 +198,6 @@ public class integration extends functions  implements boostrapDropDownMenu {
 		if(driver.findElement(By.xpath("//*[@id=\"checkbox3\"]")).isSelected()==true &&  driver.findElement(By.xpath("//*[@id=\"checkbox2\"]")).isSelected()==true){
 
 			System.out.println("Hockey and Movie hobby selected");
-
 		}
 
 		// if any of them is true, whole statement become true 
@@ -180,19 +208,7 @@ public class integration extends functions  implements boostrapDropDownMenu {
 
 		} 
 
-
 	}
-
-
-
-
-
-
-
-
-
-
-
 
 	//DOB
 	//		Select sel1 =new Select(driver.findElement(By.xpath("//*[@id=\"yearbox\"]")));
