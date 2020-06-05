@@ -34,7 +34,7 @@ public class integration extends functions  implements boostrapDropDownMenu {
 
 		driver.get("http://demo.automationtesting.in/Register.html");
 
-		driver.manage().window().maximize();
+		driver.manage().window().maximize(); //maximize browser
 
 		integration.loginModule(driver);
 		integration.skill_Country_DropdownMenu(driver);
